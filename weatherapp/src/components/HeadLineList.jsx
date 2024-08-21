@@ -1,30 +1,43 @@
-// src/components/HomePage.js
-import React from "react";
-import { Grid, Container, Typography, Box } from "@mui/material";
-import HeadlineCard from "./HeadLineCard"; // Import the card component
+// src/components/HeadlineList.js
+import React, { useState, useEffect, useCallback } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchHeadlines } from "../services/newsApi";
+import HeadlineCard from "./HeadLineCard";
 
-const articles = [
-  /* Your array of articles */
-];
+const HeadlineList = () => {
+  const [headlines, setHeadlines] = useState([]);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
 
-const HomePage = () => {
+  const loadMoreHeadlines = useCallback(async () => {
+    try {
+      const newHeadlines = await fetchHeadlines(page);
+      setHeadlines((prevHeadlines) => [...prevHeadlines, ...newHeadlines]);
+      setPage((prevPage) => prevPage + 1);
+      if (newHeadlines.length === 0) setHasMore(false); // No more headlines
+    } catch (error) {
+      console.error(error);
+    }
+  }, [page]);
+
+  useEffect(() => {
+    loadMoreHeadlines(); // Load initial headlines
+  }, [loadMoreHeadlines]);
+
   return (
-    <Container maxWidth="lg">
-      <Box sx={{ marginTop: 4, marginBottom: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Technology
-        </Typography>
-      </Box>
-
-      <Grid container spacing={3}>
-        {articles.map((article, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
-            <HeadlineCard article={article} />
-          </Grid>
+    <InfiniteScroll
+      dataLength={headlines.length}
+      next={loadMoreHeadlines}
+      hasMore={hasMore}
+      loader={<h4>Loading...</h4>}
+    >
+      <div className="headline-list">
+        {headlines.map((article, index) => (
+          <HeadlineCard key={index} article={article} />
         ))}
-      </Grid>
-    </Container>
+      </div>
+    </InfiniteScroll>
   );
 };
 
-export default HomePage;
+export default HeadlineList;
