@@ -1,67 +1,24 @@
-// src/pages/MainPage.js
-import React, { useState, useEffect } from "react";
-import { Container, Typography, Grid, TextField } from "@mui/material";
-import HeadlineCard from "../components/HeadLineCard";
-import { fetchHeadlines } from "../services/newsApi";
-import "../style/style.css";
+// src/components/HomePage.js
+import React from "react";
+import { Grid, Container, Typography, Box } from "@mui/material";
+import HeadlineCard from "./HeadLineCard"; // Import the card component
 
-const MainPage = () => {
-  const [headlines, setHeadlines] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+const articles = [
+  /* Your array of articles */
+];
 
-  useEffect(() => {
-    const getHeadlines = async () => {
-      const fetchedHeadlines = await fetchHeadlines();
-      setHeadlines(fetchedHeadlines);
-    };
-    getHeadlines();
-  }, []);
-
-  const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
-  const filteredHeadlines = headlines.filter((article) =>
-    article.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
+const HomePage = () => {
   return (
-    <Container sx={{ paddingTop: 4, color: "white" }}>
-      {/* Search Bar */}
-      <TextField
-        label="Search"
-        variant="outlined"
-        fullWidth
-        sx={{
-          marginBottom: 4,
-          backgroundColor: "#1e1e1e",
-          input: { color: "white" },
-          "& .MuiOutlinedInput-root": {
-            "& fieldset": {
-              borderColor: "gray",
-            },
-            "&:hover fieldset": {
-              borderColor: "white",
-            },
-          },
-        }}
-        value={searchTerm}
-        onChange={handleSearch}
-      />
+    <Container maxWidth="lg">
+      <Box sx={{ marginTop: 4, marginBottom: 4 }}>
+        <Typography variant="h4" component="h1" gutterBottom>
+          Technology
+        </Typography>
+      </Box>
 
-      {/* Section Title */}
-      <Typography
-        variant="h3"
-        gutterBottom
-        sx={{ color: "#fff", marginBottom: 4 }}
-      >
-        Technology
-      </Typography>
-
-      {/* Grid Layout for Cards */}
-      <Grid container spacing={4}>
-        {filteredHeadlines.map((article, index) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+      <Grid container spacing={3}>
+        {articles.map((article, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index}>
             <HeadlineCard article={article} />
           </Grid>
         ))}
@@ -70,4 +27,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default HomePage;

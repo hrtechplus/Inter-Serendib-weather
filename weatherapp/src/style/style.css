@@ -26,3 +26,16 @@ body {
 .headline-card {
   margin-bottom: 16px;
 }
+/* Import these styles in your CSS file */
+.slick-slider {
+  margin: 20px 0;
+}
+
+.slick-prev,
+.slick-next {
+  z-index: 1;
+}
+
+.slick-dots {
+  bottom: 10px;
+}

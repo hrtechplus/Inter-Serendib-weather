@@ -1,18 +1,16 @@
 // src/App.js
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HeadlineList from "./components/HeadLineList";
-import HeadlineDetail from "./pages/headLineDetails";
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import theme from "./theme"; // Import the light theme
+import HomePage from "./components/HeadLineList"; // Your main page component
 
-const App = () => {
+function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HeadlineList />} />
-        <Route path="/headline/:title" element={<HeadlineDetail />} />
-      </Routes>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <CssBaseline /> {/* Normalize styles for the entire app */}
+      <HomePage />
+    </ThemeProvider>
   );
-};
+}
 
 export default App;
