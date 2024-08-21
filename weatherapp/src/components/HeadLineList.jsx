@@ -1,43 +1,73 @@
-// src/components/HeadlineList.js
+// src/pages/MainPage.js
 import React, { useState, useEffect } from "react";
-import InfiniteScroll from "react-infinite-scroll-component";
+import { Container, Typography, Grid, TextField } from "@mui/material";
+import HeadlineCard from "../components/HeadLineCard";
 import { fetchHeadlines } from "../services/newsApi";
-import HeadlineCard from "./HeadLineCard";
+import "../style/style.css";
 
-const HeadlineList = () => {
+const MainPage = () => {
   const [headlines, setHeadlines] = useState([]);
-  const [page, setPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true);
-
-  const loadMoreHeadlines = async () => {
-    try {
-      const newHeadlines = await fetchHeadlines(page);
-      setHeadlines([...headlines, ...newHeadlines]);
-      setPage(page + 1);
-      if (newHeadlines.length === 0) setHasMore(false); // No more headlines
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    loadMoreHeadlines(); // Load initial headlines
+    const getHeadlines = async () => {
+      const fetchedHeadlines = await fetchHeadlines();
+      setHeadlines(fetchedHeadlines);
+    };
+    getHeadlines();
   }, []);
 
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredHeadlines = headlines.filter((article) =>
+    article.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
-    <InfiniteScroll
-      dataLength={headlines.length}
-      next={loadMoreHeadlines}
-      hasMore={hasMore}
-      loader={<h4>Loading...</h4>}
-    >
-      <div className="headline-list">
-        {headlines.map((article, index) => (
-          <HeadlineCard key={index} article={article} />
+    <Container sx={{ paddingTop: 4, color: "white" }}>
+      {/* Search Bar */}
+      <TextField
+        label="Search"
+        variant="outlined"
+        fullWidth
+        sx={{
+          marginBottom: 4,
+          backgroundColor: "#1e1e1e",
+          input: { color: "white" },
+          "& .MuiOutlinedInput-root": {
+            "& fieldset": {
+              borderColor: "gray",
+            },
+            "&:hover fieldset": {
+              borderColor: "white",
+            },
+          },
+        }}
+        value={searchTerm}
+        onChange={handleSearch}
+      />
+
+      {/* Section Title */}
+      <Typography
+        variant="h3"
+        gutterBottom
+        sx={{ color: "#fff", marginBottom: 4 }}
+      >
+        Technology
+      </Typography>
+
+      {/* Grid Layout for Cards */}
+      <Grid container spacing={4}>
+        {filteredHeadlines.map((article, index) => (
+          <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+            <HeadlineCard article={article} />
+          </Grid>
         ))}
-      </div>
-    </InfiniteScroll>
+      </Grid>
+    </Container>
   );
 };
 
-export default HeadlineList;
+export default MainPage;

@@ -5,12 +5,11 @@ const BASE_URL = "https://newsapi.org/v2";
 
 export const fetchHeadlines = async (page = 1) => {
   try {
-    const response = await axios.get(`${BASE_URL}/top-headlines`, {
+    const response = await axios.get(`${BASE_URL}/everything`, {
       params: {
-        country: "us",
         apiKey: API_KEY,
         page: page,
-        domains: "techcrunch.com",
+        q: "technology",
       },
     });
     return response.data.articles;
