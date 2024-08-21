@@ -5,7 +5,7 @@ const BASE_URL = "https://newsapi.org/v2";
 
 export const fetchHeadlines = async (page = 1) => {
   try {
-    const response = await axios.get(`${BASE_URL}`, {
+    const response = await axios.get(`${BASE_URL}/top-headlines`, {
       params: {
         country: "us",
         apiKey: API_KEY,
