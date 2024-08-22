@@ -29,6 +29,9 @@ const HeadlineList = () => {
   return (
     <>
       <AppBarMain />
+      <Container>
+        <h1 style={{ fontWeight: "normal", color: "#fff" }}>Top Headlines</h1>
+      </Container>
 
       <Container
         sx={{
