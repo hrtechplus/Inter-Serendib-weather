@@ -22,8 +22,12 @@ const HeadlineCard = ({ article, relatedArticles }) => {
         padding: "1rem",
         backgroundColor: "#1F1F1F",
         color: "#FFFFFF",
+        borderTop: 1,
       }}
     >
+      <Divider
+        style={{ backgroundColor: "#BDC1C6", marginTop: 4, marginBottom: 8 }}
+      />
       <Grid container spacing={2} alignItems="center">
         <Grid item xs={12} md={4}>
           <CardMedia
@@ -38,7 +42,7 @@ const HeadlineCard = ({ article, relatedArticles }) => {
         </Grid>
         <Grid item xs={12} md={8}>
           <CardContent>
-            <Typography variant="h6" component="div" gutterBottom>
+            <Typography variant="h5" component="div" gutterBottom>
               <Link
                 to={articleLink}
                 style={{ textDecoration: "none", color: "#FFFFFF" }}
@@ -58,7 +62,7 @@ const HeadlineCard = ({ article, relatedArticles }) => {
             <Typography variant="body2" color="#CCCCCC" gutterBottom>
               {article.description}
             </Typography>
-            <Divider style={{ backgroundColor: "#555" }} />
+
             {relatedArticles && relatedArticles.length > 0 && (
               <div>
                 {relatedArticles.map((related, index) => (
