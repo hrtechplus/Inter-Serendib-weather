@@ -3,10 +3,13 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchHeadlines } from "../services/newsApi";
 import HeadlineCard from "./HeadLineCard";
 import Container from "@mui/material/Container";
-
+import { useMediaQuery, useTheme } from "@mui/material";
 import AppBarMain from "./AppBarMain";
+import { Typography } from "@mui/material";
 
 const HeadlineList = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [headlines, setHeadlines] = useState([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
@@ -30,7 +33,16 @@ const HeadlineList = () => {
     <>
       <AppBarMain />
       <Container>
-        <h1 style={{ fontWeight: "normal", color: "#fff" }}>Top Headlines</h1>
+        <Typography
+          variant={isMobile ? "h5" : "h4"}
+          style={{ fontWeight: "normal", color: "#fff" }}
+        >
+          Top Headlines
+        </Typography>
+        {/* add the current date  */}
+        <Typography variant="body1" style={{ color: "#BDC1C6" }}>
+          {new Date().toDateString()}
+        </Typography>
       </Container>
 
       <Container
