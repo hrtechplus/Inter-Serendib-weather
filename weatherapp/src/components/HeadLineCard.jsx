@@ -19,9 +19,8 @@ const HeadlineCard = ({ article, relatedArticles }) => {
   return (
     <Card
       style={{
-        margin: "1rem",
         padding: "1rem",
-        backgroundColor: "#1E1E1E",
+        backgroundColor: "#1F1F1F",
         color: "#FFFFFF",
       }}
     >

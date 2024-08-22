@@ -36,9 +36,12 @@ const HeadlineList = () => {
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
+          borderRadius: 4,
           minHeight: "100vh",
+          marginTop: 2,
           padding: 2,
-          backgroundColor: "#F5F5F5",
+          backgroundColor: "#1F1F1F",
+          width: { xs: "100%", sm: "70%" },
         }}
       >
         <InfiniteScroll
