@@ -1,5 +1,5 @@
 // src/components/HeadlineList.js
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchHeadlines } from "../services/newsApi";
 import HeadlineCard from "./HeadLineCard";
@@ -9,20 +9,20 @@ const HeadlineList = () => {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
 
-  const loadMoreHeadlines = useCallback(async () => {
+  const loadMoreHeadlines = async () => {
     try {
       const newHeadlines = await fetchHeadlines(page);
-      setHeadlines((prevHeadlines) => [...prevHeadlines, ...newHeadlines]);
-      setPage((prevPage) => prevPage + 1);
+      setHeadlines([...headlines, ...newHeadlines]);
+      setPage(page + 1);
       if (newHeadlines.length === 0) setHasMore(false); // No more headlines
     } catch (error) {
       console.error(error);
     }
-  }, [page]);
+  };
 
   useEffect(() => {
     loadMoreHeadlines(); // Load initial headlines
-  }, [loadMoreHeadlines]);
+  }, []);
 
   return (
     <InfiniteScroll
