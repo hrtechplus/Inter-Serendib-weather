@@ -8,58 +8,84 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Divider from "@mui/material/Divider";
-
 import { useMediaQuery, useTheme } from "@mui/material";
 
-const HeadlineCard = ({ article }) => {
+const HeadlineCard = ({ article, relatedArticles }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
+  const articleLink = `/headline/${encodeURIComponent(article.title)}`;
+
   return (
-    <Card style={{ margin: "1rem", padding: "1rem" }}>
-      <Grid container spacing={2}>
+    <Card
+      style={{
+        margin: "1rem",
+        padding: "1rem",
+        backgroundColor: "#1E1E1E",
+        color: "#FFFFFF",
+      }}
+    >
+      <Grid container spacing={2} alignItems="center">
         <Grid item xs={12} md={4}>
           <CardMedia
             component="img"
-            height={isMobile ? 100 : 200}
-            width={isMobile ? "100%" : "auto"}
+            height={isMobile ? 120 : 200}
             image={
               article.urlToImage || "/static/images/cards/default-image.jpg"
             }
             alt={article.title}
-            style={{ objectFit: "cover" }}
+            style={{ borderRadius: "8px", objectFit: "cover", width: "100%" }}
           />
         </Grid>
         <Grid item xs={12} md={8}>
           <CardContent>
-            <Typography variant="h5" component="div" gutterBottom>
+            <Typography variant="h6" component="div" gutterBottom>
               <Link
-                to={`/headline/${encodeURIComponent(article.title)}`}
-                style={{ textDecoration: "none", color: "inherit" }}
+                to={articleLink}
+                style={{ textDecoration: "none", color: "#FFFFFF" }}
+                state={{ article }}
               >
                 {article.title}
               </Link>
             </Typography>
-            <Typography variant="body2" color="text.secondary">
-              <strong>Source:</strong> {article.source.name}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              <strong>Author:</strong> {article.author || "Unknown"}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="#CCCCCC" gutterBottom>
+              <strong>Source:</strong> {article.source.name} &nbsp;&nbsp; |
+              &nbsp;&nbsp;
+              <strong>Author:</strong> {article.author || "Unknown"}{" "}
+              &nbsp;&nbsp; | &nbsp;&nbsp;
               <strong>Date:</strong>{" "}
               {new Date(article.publishedAt).toLocaleDateString()}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="#CCCCCC" gutterBottom>
               {article.description}
             </Typography>
+            <Divider style={{ backgroundColor: "#555" }} />
+            {relatedArticles && relatedArticles.length > 0 && (
+              <div>
+                {relatedArticles.map((related, index) => (
+                  <div key={index} style={{ marginTop: "10px" }}>
+                    <Typography variant="body2" color="#BBBBBB">
+                      <Link
+                        to={`/headline/${encodeURIComponent(related.title)}`}
+                        style={{ textDecoration: "none", color: "#BBBBBB" }}
+                      >
+                        {related.title}
+                      </Link>{" "}
+                      - {related.source.name} -{" "}
+                      {new Date(related.publishedAt).toLocaleTimeString()}
+                    </Typography>
+                  </div>
+                ))}
+              </div>
+            )}
           </CardContent>
           <CardActions>
             <Button
               size="small"
               component={Link}
-              to={`/headline/${encodeURIComponent(article.title)}`}
+              to={articleLink}
               state={{ article }}
+              style={{ color: "#FFC107" }}
             >
               Read More
             </Button>
