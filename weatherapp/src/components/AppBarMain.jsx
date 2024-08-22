@@ -16,16 +16,16 @@ const AppBarMain = () => {
           sx={{
             display: "flex",
             alignItems: "center",
-            backgroundColor: "#333",
+            backgroundColor: "#444",
             borderRadius: 1,
             paddingLeft: 1,
           }}
         >
-          <SearchIcon sx={{ color: "white" }} />
+          <SearchIcon sx={{ color: "#BDC1C6 " }} />
           <InputBase
             placeholder="Search…"
             sx={{
-              color: "white",
+              color: "#BDC1C6",
               paddingLeft: 1,
             }}
             inputProps={{ "aria-label": "search" }}
