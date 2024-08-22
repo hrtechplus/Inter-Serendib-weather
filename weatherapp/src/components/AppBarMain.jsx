@@ -2,7 +2,7 @@ import React from "react";
 import { AppBar, Toolbar, Typography, InputBase, Box } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
-const SimpleAppBar = () => {
+const AppBarMain = () => {
   return (
     <AppBar position="static" sx={{ backgroundColor: "#1E1E1E" }}>
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -36,4 +36,4 @@ const SimpleAppBar = () => {
   );
 };
 
-export default SimpleAppBar;
+export default AppBarMain;
