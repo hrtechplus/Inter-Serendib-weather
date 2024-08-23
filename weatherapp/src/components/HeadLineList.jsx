@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchHeadlines } from "../services/newsApi";
-import HeadlineCard from "./HeadLineCard";
 import Container from "@mui/material/Container";
 import { useMediaQuery, useTheme } from "@mui/material";
 import AppBarMain from "./AppBarMain";
-
 import HeadTitile from "./HeadTitile";
+import HeadlineCard from "./HeadLineCard";
 
 const HeadlineList = () => {
   const theme = useTheme();
@@ -33,7 +32,7 @@ const HeadlineList = () => {
   return (
     <>
       <AppBarMain />
-      <HeadTitile />
+
       <Container
         sx={{
           display: "flex",
@@ -41,25 +40,40 @@ const HeadlineList = () => {
           alignItems: "center",
           flexDirection: "column",
           borderRadius: 4,
-          minHeight: "100vh",
+          minHeight: "10vh",
           marginTop: 2,
-          padding: 2,
-          backgroundColor: "#1F1F1F",
-          width: { xs: "100%", sm: "70%" },
+          backgroundColor: "#292A2D",
+          width: { xs: "100%", sm: "80%" },
         }}
       >
-        <InfiniteScroll
-          dataLength={headlines.length}
-          next={loadMoreHeadlines}
-          hasMore={hasMore}
-          loader={<h4>Loading...</h4>}
+        <HeadTitile />
+        <Container
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+            borderRadius: 4,
+            minHeight: "90vh",
+            marginTop: 2,
+            padding: 2,
+            backgroundColor: "#1F1F1F",
+            width: { xs: "100%", sm: "80%" },
+          }}
         >
-          <div className="headline-list" style={{ width: "100%" }}>
-            {headlines.map((article, index) => (
-              <HeadlineCard key={index} article={article} />
-            ))}
-          </div>
-        </InfiniteScroll>
+          <InfiniteScroll
+            dataLength={headlines.length}
+            next={loadMoreHeadlines}
+            hasMore={hasMore}
+            loader={<h4>Loading...</h4>}
+          >
+            <div className="headline-list" style={{ width: "100%" }}>
+              {headlines.map((article, index) => (
+                <HeadlineCard key={index} article={article} />
+              ))}
+            </div>
+          </InfiniteScroll>
+        </Container>
       </Container>
     </>
   );
