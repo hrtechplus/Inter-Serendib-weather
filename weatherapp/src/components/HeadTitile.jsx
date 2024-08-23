@@ -1,13 +1,14 @@
-import { Container, Typography } from "@mui/material";
 import React from "react";
+import { Container, Typography } from "@mui/material";
 import { useMediaQuery, useTheme } from "@mui/material";
+
 export default function () {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <Container sx={{ marginTop: 2, marginBottom: 2 }}>
       <Typography
-        variant={isMobile ? "h5" : "h4"}
+        variant={isMobile ? "h4" : "h4"}
         sx={{ fontWeight: "normal", color: "#fff", lineHeight: 0.9 }}
       >
         Top Headlines

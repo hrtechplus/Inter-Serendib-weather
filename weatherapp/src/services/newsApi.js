@@ -3,7 +3,7 @@ import axios from "axios";
 const API_KEY = "d375355a251c4e448eead2cec74ae275";
 const BASE_URL = "https://newsapi.org/v2/everything";
 
-export const fetchHeadlines = async (page = 1) => {
+export const fetchHeadlines = async (query, page = 1) => {
   try {
     const response = await axios.get(`${BASE_URL}`, {
       params: {
@@ -13,7 +13,7 @@ export const fetchHeadlines = async (page = 1) => {
         language: "en",
         // country: "us",
         sortBy: "publishedAt",
-        q: "Windows",
+        q: query,
       },
     });
     return response.data.articles;
