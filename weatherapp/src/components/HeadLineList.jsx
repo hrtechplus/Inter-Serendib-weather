@@ -68,8 +68,8 @@ const HeadlineList = () => {
             </Typography>
             <ArrowForwardIosSharpIcon
               sx={{
-                color: "#8BB8F8", // Set the desired icon color here
-                backgroundColor: "transparent", // Ensure the background color is transparent
+                color: "#8BB8F8", // icon color here
+                backgroundColor: "transparent", //  background color is transparent
               }}
             />
           </Container>
@@ -85,7 +85,7 @@ const HeadlineList = () => {
                 <Grow
                   key={index}
                   in={true} // Trigger the transition
-                  timeout={500} // Set the duration of the transition in ms
+                  timeout={500} //  duration of the transition in ms
                 >
                   <div>
                     <HeadlineCard article={article} />
