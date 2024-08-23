@@ -10,6 +10,8 @@ export const fetchHeadlines = async (page = 1) => {
         // You can choose any country code here
         apiKey: API_KEY,
         page: page,
+        language: "en",
+        sortBy: "publishedAt",
         q: "technology",
       },
     });
