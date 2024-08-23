@@ -3,7 +3,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchHeadlines } from "../services/newsApi";
 import Container from "@mui/material/Container";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
-import { Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Grow, Typography, useMediaQuery, useTheme } from "@mui/material";
 import AppBarMain from "./AppBarMain";
 import HeadTitile from "./HeadTitile";
 import HeadlineCard from "./HeadLineCard";
@@ -82,7 +82,15 @@ const HeadlineList = () => {
           >
             <div className="headline-list" style={{ width: "100%" }}>
               {headlines.map((article, index) => (
-                <HeadlineCard key={index} article={article} />
+                <Grow
+                  key={index}
+                  in={true} // Trigger the transition
+                  timeout={500} // Set the duration of the transition in ms
+                >
+                  <div>
+                    <HeadlineCard article={article} />
+                  </div>
+                </Grow>
               ))}
             </div>
           </InfiniteScroll>

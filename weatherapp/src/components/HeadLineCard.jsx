@@ -21,9 +21,9 @@ const HeadlineCard = ({ article, relatedArticles }) => {
         padding: "1rem",
         backgroundColor: "#1F1F1F",
         color: "#FFFFFF",
-        borderTop: 1,
-        width: "-webkit-fill-available",
-        height: { xs: "40vh", sm: "auto" },
+        borderRadius: "8px",
+        width: "100%",
+        height: isMobile ? "auto" : "auto",
       }}
     >
       <Divider
@@ -43,32 +43,69 @@ const HeadlineCard = ({ article, relatedArticles }) => {
         </Grid>
         <Grid item xs={12} md={8}>
           <CardContent>
-            <Typography variant="h5" component="div" gutterBottom>
+            <Typography
+              variant="h6"
+              component="div"
+              gutterBottom
+              style={{
+                fontWeight: 500,
+                color: "#FFC107",
+                fontSize: isMobile ? "1rem" : "1.25rem",
+              }}
+            >
               <Link
                 to={articleLink}
-                style={{ textDecoration: "none", color: "#FFFFFF" }}
+                style={{ textDecoration: "none", color: "#fff" }}
                 state={{ article }}
               >
                 {article.title}
               </Link>
             </Typography>
-            <Typography variant="body2" color="#CCCCCC" gutterBottom>
-              <strong>Source:</strong> {article.source.name} &nbsp;&nbsp; |
-              &nbsp;&nbsp;
-              <strong>Author:</strong> {article.author || "Unknown"}{" "}
-              &nbsp;&nbsp; | &nbsp;&nbsp;
-              <strong>Date:</strong>{" "}
+
+            <Typography
+              variant="body2"
+              color="#A8A8A8"
+              gutterBottom
+              style={{ fontSize: isMobile ? "0.85rem" : "1rem" }}
+            >
+              <strong>{article.author || "Unknown Author"}</strong> &nbsp;&nbsp;
+              <strong>|</strong> {article.source.name} &nbsp;&nbsp;
+              <strong>|</strong>{" "}
               {new Date(article.publishedAt).toLocaleDateString()}
             </Typography>
-            <Typography variant="body2" color="#CCCCCC" gutterBottom>
+
+            <Typography
+              variant="body2"
+              color="#DDDDDD"
+              gutterBottom
+              style={{
+                marginTop: "8px",
+                lineHeight: 1.6,
+                fontSize: isMobile ? "0.9rem" : "1rem",
+              }}
+            >
               {article.description}
             </Typography>
 
             {relatedArticles && relatedArticles.length > 0 && (
               <div>
+                <Typography
+                  variant="subtitle2"
+                  color="#CCCCCC"
+                  style={{
+                    marginTop: "10px",
+                    fontSize: isMobile ? "0.85rem" : "1rem",
+                  }}
+                >
+                  Related Articles:
+                </Typography>
                 {relatedArticles.map((related, index) => (
-                  <div key={index} style={{ marginTop: "10px" }}>
-                    <Typography variant="body2" color="#BBBBBB">
+                  <div key={index} style={{ marginTop: "6px" }}>
+                    <Typography
+                      variant="body2"
+                      color="#BBBBBB"
+                      style={{ fontSize: isMobile ? "0.8rem" : "0.95rem" }}
+                    >
                       <Link
                         to={`/headline/${encodeURIComponent(related.title)}`}
                         style={{ textDecoration: "none", color: "#BBBBBB" }}
@@ -83,17 +120,6 @@ const HeadlineCard = ({ article, relatedArticles }) => {
               </div>
             )}
           </CardContent>
-          <CardActions>
-            <Button
-              size="small"
-              component={Link}
-              to={articleLink}
-              state={{ article }}
-              style={{ color: "#FFC107" }}
-            >
-              Read More
-            </Button>
-          </CardActions>
         </Grid>
       </Grid>
     </Card>
