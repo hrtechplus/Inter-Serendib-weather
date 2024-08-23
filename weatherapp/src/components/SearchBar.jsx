@@ -10,6 +10,7 @@ const Style = {
   borderRadius: 2,
   padding: 1,
   width: { xs: "100%", sm: "50%" },
+  cursor: "pointer",
 };
 export default function SearchBar() {
   return (
