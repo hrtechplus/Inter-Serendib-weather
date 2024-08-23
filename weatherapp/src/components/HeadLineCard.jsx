@@ -22,6 +22,8 @@ const HeadlineCard = ({ article, relatedArticles }) => {
         backgroundColor: "#1F1F1F",
         color: "#FFFFFF",
         borderTop: 1,
+        width: "-webkit-fill-available",
+        height: { xs: "40vh", sm: "auto" },
       }}
     >
       <Divider

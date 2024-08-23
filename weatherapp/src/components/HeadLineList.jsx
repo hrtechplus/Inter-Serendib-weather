@@ -49,10 +49,6 @@ const HeadlineList = () => {
         <HeadTitile />
         <Container
           sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexDirection: "column",
             borderRadius: 4,
             minHeight: "90vh",
             marginTop: 2,
