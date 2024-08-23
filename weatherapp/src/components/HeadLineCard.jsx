@@ -13,7 +13,6 @@ import { useMediaQuery, useTheme } from "@mui/material";
 const HeadlineCard = ({ article, relatedArticles }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-
   const articleLink = `/headline/${encodeURIComponent(article.title)}`;
 
   return (

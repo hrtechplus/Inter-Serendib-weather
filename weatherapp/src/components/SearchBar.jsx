@@ -8,8 +8,8 @@ export default function SearchBar() {
         display: "flex",
         alignItems: "center",
         backgroundColor: "#444",
-        borderRadius: 1,
-        paddingLeft: 1,
+        borderRadius: 2,
+        padding: 1,
       }}
     >
       <SearchIcon sx={{ color: "#BDC1C6 " }} />

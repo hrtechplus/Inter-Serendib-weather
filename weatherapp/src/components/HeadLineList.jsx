@@ -5,7 +5,8 @@ import HeadlineCard from "./HeadLineCard";
 import Container from "@mui/material/Container";
 import { useMediaQuery, useTheme } from "@mui/material";
 import AppBarMain from "./AppBarMain";
-import { Typography } from "@mui/material";
+
+import HeadTitile from "./HeadTitile";
 
 const HeadlineList = () => {
   const theme = useTheme();
@@ -32,19 +33,7 @@ const HeadlineList = () => {
   return (
     <>
       <AppBarMain />
-      <Container>
-        <Typography
-          variant={isMobile ? "h5" : "h4"}
-          style={{ fontWeight: "normal", color: "#fff" }}
-        >
-          Top Headlines
-        </Typography>
-        {/* add the current date  */}
-        <Typography variant="body1" style={{ color: "#BDC1C6" }}>
-          {new Date().toDateString()}
-        </Typography>
-      </Container>
-
+      <HeadTitile />
       <Container
         sx={{
           display: "flex",
