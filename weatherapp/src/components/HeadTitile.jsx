@@ -8,14 +8,17 @@ export default function () {
     <Container sx={{ marginTop: 2, marginBottom: 2 }}>
       <Typography
         variant={isMobile ? "h5" : "h4"}
-        style={{ fontWeight: "normal", color: "#fff" }}
+        sx={{ fontWeight: "normal", color: "#fff", lineHeight: 0.9 }}
       >
         Top Headlines
       </Typography>
       {/* add the current date  to  user */}
       <Typography
         variant="body2"
-        sx={{ color: "#BDC1C6", paddingLeft: isMobile ? 0 : 1 }}
+        sx={{
+          color: "#BDC1C6",
+          paddingLeft: isMobile ? 0 : 1,
+        }}
       >
         {new Date().toDateString()}
       </Typography>

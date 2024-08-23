@@ -5,7 +5,7 @@ import TextLine from "./TextLine";
 
 const AppBarMain = () => {
   return (
-    <AppBar position="static" sx={{ backgroundColor: "#202124" }}>
+    <AppBar position="static" sx={{ backgroundColor: "#202124", boxShadow: 0 }}>
       <Toolbar sx={{ display: "flex", justifyContent: "space-around" }}>
         {/* Logo --1 */}
         <TextLine

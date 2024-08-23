@@ -11,8 +11,9 @@ export const fetchHeadlines = async (page = 1) => {
         apiKey: API_KEY,
         page: page,
         language: "en",
+        // country: "us",
         sortBy: "publishedAt",
-        q: "android",
+        q: "Windows",
       },
     });
     return response.data.articles;
