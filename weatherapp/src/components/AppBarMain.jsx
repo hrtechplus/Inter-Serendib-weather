@@ -1,6 +1,6 @@
 import React from "react";
-import { AppBar, Toolbar, Typography, InputBase, Box } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
+import { AppBar, Toolbar, Typography } from "@mui/material";
+import SearchBar from "./SearchBar";
 
 const AppBarMain = () => {
   return (
@@ -10,27 +10,8 @@ const AppBarMain = () => {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           Serendib News
         </Typography>
-
         {/* Search Bar */}
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            backgroundColor: "#444",
-            borderRadius: 1,
-            paddingLeft: 1,
-          }}
-        >
-          <SearchIcon sx={{ color: "#BDC1C6 " }} />
-          <InputBase
-            placeholder="Search…"
-            sx={{
-              color: "#BDC1C6",
-              paddingLeft: 1,
-            }}
-            inputProps={{ "aria-label": "search" }}
-          />
-        </Box>
+        <SearchBar />
       </Toolbar>
     </AppBar>
   );

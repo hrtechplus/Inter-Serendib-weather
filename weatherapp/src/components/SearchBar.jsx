@@ -1,27 +1,26 @@
-// src/components/SearchBar.js
+import { Box, InputBase } from "@mui/material";
 import React from "react";
-import { Box, TextField } from "@mui/material";
-
-const SearchBar = () => {
+import SearchIcon from "@mui/icons-material/Search";
+export default function SearchBar() {
   return (
     <Box
       sx={{
-        marginTop: 2,
-        marginBottom: 2,
-        width: "100%",
         display: "flex",
-        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#444",
+        borderRadius: 1,
+        paddingLeft: 1,
       }}
     >
-      <TextField
-        label="Search"
-        variant="outlined"
+      <SearchIcon sx={{ color: "#BDC1C6 " }} />
+      <InputBase
+        placeholder="Search…"
         sx={{
-          width: { xs: "100%", sm: "60%" }, // Full width on mobile, 60% width on larger screens
+          color: "#BDC1C6",
+          paddingLeft: 1,
         }}
+        inputProps={{ "aria-label": "search" }}
       />
     </Box>
   );
-};
-
-export default SearchBar;
+}
