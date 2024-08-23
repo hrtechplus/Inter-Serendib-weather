@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchHeadlines } from "../services/newsApi";
 import Container from "@mui/material/Container";
-import { useMediaQuery, useTheme } from "@mui/material";
+import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
+import { Typography, useMediaQuery, useTheme } from "@mui/material";
 import AppBarMain from "./AppBarMain";
 import HeadTitile from "./HeadTitile";
 import HeadlineCard from "./HeadLineCard";
@@ -43,7 +44,6 @@ const HeadlineList = () => {
           minHeight: "10vh",
           marginTop: 2,
           backgroundColor: "#292A2D",
-          width: { xs: "100%", sm: "80%" },
         }}
       >
         <HeadTitile />
@@ -57,6 +57,23 @@ const HeadlineList = () => {
             width: { xs: "100%", sm: "80%" },
           }}
         >
+          {/* // top story titile  */}
+          <Container sx={{ display: "flex", alignItems: "center" }}>
+            <Typography
+              variant="h5"
+              paddingLeft={isMobile ? 2 : 0}
+              color={"#8BB8F8"}
+            >
+              Top stories
+            </Typography>
+            <ArrowForwardIosSharpIcon
+              sx={{
+                color: "#8BB8F8", // Set the desired icon color here
+                backgroundColor: "transparent", // Ensure the background color is transparent
+              }}
+            />
+          </Container>
+
           <InfiniteScroll
             dataLength={headlines.length}
             next={loadMoreHeadlines}

@@ -12,7 +12,7 @@ export const fetchHeadlines = async (page = 1) => {
         page: page,
         language: "en",
         sortBy: "publishedAt",
-        q: "technology",
+        q: "android",
       },
     });
     return response.data.articles;
