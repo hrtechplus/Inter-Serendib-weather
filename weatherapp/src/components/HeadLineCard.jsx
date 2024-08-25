@@ -6,7 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Divider from "@mui/material/Divider";
-import { useMediaQuery, useTheme } from "@mui/material";
+import { Box, useMediaQuery, useTheme } from "@mui/material";
 
 const HeadlineCard = ({ article, relatedArticles }) => {
   const theme = useTheme();
@@ -91,10 +91,13 @@ const HeadlineCard = ({ article, relatedArticles }) => {
             </Typography>
 
             <Typography variant="body2" style={styles.meta} gutterBottom>
-              <strong>{article.author || "Unknown Author"}</strong> &nbsp;&nbsp;
-              <strong>|</strong> {article.source.name} &nbsp;&nbsp;
-              <strong>|</strong>{" "}
-              {new Date(article.publishedAt).toLocaleDateString()}
+              <Box sx={{ fontWeigh: "400" }}>
+                {article.author || "Unknown Author"}
+                &nbsp;&nbsp;
+                <strong>|</strong> {article.source.name} &nbsp;&nbsp;
+                <strong>|</strong>{" "}
+                {new Date(article.publishedAt).toLocaleDateString()}
+              </Box>{" "}
             </Typography>
 
             <Typography variant="body2" style={styles.description} gutterBottom>

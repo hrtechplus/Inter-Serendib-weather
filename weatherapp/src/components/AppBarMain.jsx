@@ -15,10 +15,11 @@ const AppBarStyle = [
   },
   {
     color: "#BDC1C6",
-    border: 1,
+    boxShadow: "2",
     padding: 1,
     marginX: 1,
     borderRadius: 2,
+    cursor: "pointer",
   },
 ];
 const AppBarMain = () => {

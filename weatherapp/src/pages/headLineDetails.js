@@ -12,6 +12,7 @@ import {
   IconButton,
 } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { colors } from "../style/colors";
 
 const HeadlineDetail = () => {
   const location = useLocation();
@@ -19,11 +20,17 @@ const HeadlineDetail = () => {
   const { article } = location.state;
 
   return (
-    <Box sx={{ minHeight: "100vh", backgroundColor: "#f5f5f5" }}>
+    <Box
+      sx={{
+        minHeight: "100vh",
+        backgroundColor: colors.secondaryContainerBackground,
+        padding: "2rem",
+      }}
+    >
       {/* Top Navigation with Back Button */}
       <AppBar
         position="static"
-        sx={{ backgroundColor: "#1E1E1E", marginBottom: "2rem" }}
+        sx={{ backgroundColor: colors.appBarBackground, marginBottom: "2rem" }}
       >
         <Toolbar>
           <IconButton
@@ -38,7 +45,7 @@ const HeadlineDetail = () => {
           <Typography
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1, color: "#FFFFFF" }}
+            sx={{ flexGrow: 1, color: colors.textColor }}
           >
             Headlines
           </Typography>
@@ -50,14 +57,16 @@ const HeadlineDetail = () => {
         sx={{
           maxWidth: "900px",
           margin: "auto",
-          backgroundColor: "#FFFFFF",
+          backgroundColor: colors.cardBackground,
+          color: colors.textColor,
           padding: "2rem",
+          borderRadius: "8px",
         }}
       >
         <Typography
           variant="h4"
           gutterBottom
-          sx={{ fontWeight: "bold", color: "#333" }}
+          sx={{ fontWeight: "bold", color: colors.titleColor }}
         >
           {article.title}
         </Typography>
@@ -68,22 +77,24 @@ const HeadlineDetail = () => {
             marginBottom: "1rem",
           }}
         >
-          <Typography variant="subtitle1" sx={{ color: "#757575" }}>
+          <Typography variant="subtitle1" sx={{ color: colors.metaColor }}>
             <strong>Source:</strong> {article.source.name}
           </Typography>
-          <Typography variant="subtitle1" sx={{ color: "#757575" }}>
+          <Typography variant="subtitle1" sx={{ color: colors.metaColor }}>
             <strong>Author:</strong> {article.author || "Unknown"}
           </Typography>
         </Box>
         <Typography
           variant="subtitle2"
-          sx={{ color: "#757575", marginBottom: "1rem" }}
+          sx={{ color: colors.metaColor, marginBottom: "1rem" }}
         >
           <strong>Published At:</strong>{" "}
           {new Date(article.publishedAt).toLocaleString()}
         </Typography>
 
-        <Divider sx={{ marginBottom: "1.5rem" }} />
+        <Divider
+          sx={{ backgroundColor: colors.dividerColor, marginBottom: "1.5rem" }}
+        />
 
         <CardMedia
           component="img"
@@ -100,21 +111,24 @@ const HeadlineDetail = () => {
 
         <Typography
           variant="body1"
-          sx={{ color: "#333", lineHeight: "1.8", marginBottom: "2rem" }}
+          sx={{
+            color: colors.descriptionColor,
+            lineHeight: "1.8",
+            marginBottom: "2rem",
+          }}
         >
           {article.content || article.description || "No content available."}
         </Typography>
 
         <Button
           variant="contained"
-          color="primary"
           href={article.url}
           target="_blank"
           rel="noopener noreferrer"
           sx={{
-            backgroundColor: "#1a73e8",
+            backgroundColor: colors.topStoriesColor,
             "&:hover": {
-              backgroundColor: "#155ab2",
+              backgroundColor: colors.relatedTitleColor,
             },
           }}
         >
