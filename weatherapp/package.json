@@ -2,7 +2,7 @@
   "name": "weatherapp",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://hrtechplus.github.io/Inter-Serendib-weather/weatherapp",
+  "homepage": "https://hrtechplus.github.io/Inter-Serendib-weather/",
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
