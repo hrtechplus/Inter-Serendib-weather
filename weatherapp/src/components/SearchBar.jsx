@@ -19,7 +19,7 @@ export default function SearchBar() {
     <Box sx={style}>
       <SearchIcon sx={{ color: colors.dividerColor }} />
       <InputBase
-        placeholder="Search…"
+        placeholder="Search.. keyword & article"
         sx={{
           color: colors.dividerColor,
           paddingLeft: 1,
