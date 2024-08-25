@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.d66db5ed.css",
-    "main.js": "/react-gh-pages/static/js/main.e940503c.js",
-    "static/js/453.7179fb5b.chunk.js": "/react-gh-pages/static/js/453.7179fb5b.chunk.js",
-    "static/media/icon.jpg": "/react-gh-pages/static/media/icon.cfb62b1b2caab599ef2d.jpg",
-    "index.html": "/react-gh-pages/index.html",
-    "main.d66db5ed.css.map": "/react-gh-pages/static/css/main.d66db5ed.css.map",
-    "main.e940503c.js.map": "/react-gh-pages/static/js/main.e940503c.js.map",
-    "453.7179fb5b.chunk.js.map": "/react-gh-pages/static/js/453.7179fb5b.chunk.js.map"
+    "main.css": "/Inter-Serendib-weather/static/css/main.d66db5ed.css",
+    "main.js": "/Inter-Serendib-weather/static/js/main.58d677a7.js",
+    "static/js/453.7179fb5b.chunk.js": "/Inter-Serendib-weather/static/js/453.7179fb5b.chunk.js",
+    "static/media/icon.jpg": "/Inter-Serendib-weather/static/media/icon.cfb62b1b2caab599ef2d.jpg",
+    "index.html": "/Inter-Serendib-weather/index.html",
+    "main.d66db5ed.css.map": "/Inter-Serendib-weather/static/css/main.d66db5ed.css.map",
+    "main.58d677a7.js.map": "/Inter-Serendib-weather/static/js/main.58d677a7.js.map",
+    "453.7179fb5b.chunk.js.map": "/Inter-Serendib-weather/static/js/453.7179fb5b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d66db5ed.css",
-    "static/js/main.e940503c.js"
+    "static/js/main.58d677a7.js"
   ]
 }
