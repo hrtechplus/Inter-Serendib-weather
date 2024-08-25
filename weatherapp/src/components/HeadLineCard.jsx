@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Divider from "@mui/material/Divider";
 import { Box, useMediaQuery, useTheme } from "@mui/material";
-
+import { colors } from "../style/colors";
 const HeadlineCard = ({ article, relatedArticles }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -16,14 +16,14 @@ const HeadlineCard = ({ article, relatedArticles }) => {
   const styles = {
     card: {
       padding: "1rem",
-      backgroundColor: "#1F1F1F",
-      color: "#FFFFFF",
+      backgroundColor: colors.cardBackground,
+      color: colors.textColor,
       borderRadius: "8px",
       width: "100%",
       height: "auto",
     },
     divider: {
-      backgroundColor: "#BDC1C6",
+      backgroundColor: colors.dividerColor,
       margin: "4px 0 8px",
     },
     media: {
@@ -33,28 +33,28 @@ const HeadlineCard = ({ article, relatedArticles }) => {
     },
     title: {
       fontWeight: 500,
-      color: "#FFC107",
+      color: colors.titleColor,
       fontSize: isMobile ? "1rem" : "1.25rem",
     },
     meta: {
       fontSize: isMobile ? "0.85rem" : "1rem",
-      color: "#A8A8A8",
+      color: colors.metaColor,
     },
     description: {
       marginTop: "8px",
       lineHeight: 1.6,
       fontSize: isMobile ? "0.9rem" : "1rem",
-      color: "#DDDDDD",
+      color: colors.descriptionColor,
     },
     relatedTitle: {
       marginTop: "10px",
       fontSize: isMobile ? "0.85rem" : "1rem",
-      color: "#CCCCCC",
+      color: colors.relatedTitleColor,
     },
     relatedArticle: {
       marginTop: "6px",
       fontSize: isMobile ? "0.8rem" : "0.95rem",
-      color: "#BBBBBB",
+      color: colors.relatedArticleColor,
     },
   };
 

@@ -13,7 +13,7 @@ import {
 import AppBarMain from "./AppBarMain";
 import HeadTitile from "./HeadTitile";
 import HeadlineCard from "./HeadLineCard";
-
+import { colors } from "../style/colors";
 const HeadlineList = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -48,14 +48,14 @@ const HeadlineList = () => {
             <Typography
               variant="h5"
               paddingLeft={isMobile ? 2 : 0}
-              color={"#8BB8F8"}
+              color={colors.topStoriesColor}
             >
               Top stories
             </Typography>
             <ArrowForwardIosSharpIcon
               sx={{
-                color: "#8BB8F8", // icon color here
-                backgroundColor: "transparent", //  background color is transparent
+                color: colors.topStoriesColor, // icon color here
+                backgroundColor: "transparent", // background color is transparent
               }}
             />
           </Container>
@@ -90,7 +90,7 @@ const HeadlineList = () => {
 
 export default HeadlineList;
 
-//styles
+//styles and colors
 
 const styles = [
   {
@@ -101,14 +101,14 @@ const styles = [
     borderRadius: 4,
     minHeight: "10vh",
     marginTop: 2,
-    backgroundColor: "#292A2D",
+    backgroundColor: colors.secondaryContainerBackground,
   },
   {
     borderRadius: 4,
     minHeight: "90vh",
     marginTop: 2,
     padding: 2,
-    backgroundColor: "#1F1F1F",
+    backgroundColor: colors.cardBackground,
     width: { xs: "100%", sm: "80%" },
   },
 ];
