@@ -26,7 +26,7 @@ const HeadlineList = () => {
       const newHeadlines = await fetchHeadlines(page);
       setHeadlines([...headlines, ...newHeadlines]);
       setPage(page + 1);
-      if (newHeadlines.length === 0) setHasMore(false); // No more headlines
+      if (newHeadlines.length === 0) setHasMore(false);
     } catch (error) {
       console.error(error);
     }

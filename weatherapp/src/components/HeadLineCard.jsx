@@ -66,9 +66,7 @@ const HeadlineCard = ({ article, relatedArticles }) => {
           <CardMedia
             component="img"
             height={isMobile ? 120 : 200}
-            image={
-              article.urlToImage || "/static/images/cards/default-image.jpg"
-            }
+            image={article.urlToImage || "img/icon.jpg"}
             alt={article.title}
             style={styles.media}
           />
